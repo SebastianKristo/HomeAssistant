@@ -1,0 +1,836 @@
+views:
+  - title: Home
+    cards:
+      - type: custom:mushroom-chips-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(0, 0, 0, 0); /* Transparent background */
+              border: none; /* Remove border */
+              box-shadow: none; /* Remove shadow */
+              padding: 0; /* Adjust padding if needed */
+            }
+        chips:
+          - type: menu
+          - type: spacer
+          - type: action
+            icon: mdi:microphone
+            tap_action:
+              action: assist
+          - type: action
+            icon: mdi:plus
+            tap_action:
+              action: navigate
+              navigation_path: /config
+          - type: action
+            icon: mdi:dots-vertical
+            tap_action:
+              action: call-service
+              service: ui_lovelace_minimalist.reload
+              target: {}
+      - type: custom:button-card
+        tap_action:
+          action: none
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 6px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 2.5rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1rem
+            - opacity: '0.4'
+        name: God dag Sebastian
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state > '1' ]]]
+                styles:
+                  card:
+                    - background: null
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 5px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 22px
+                - color: '#FF9843'
+              name:
+                - justify-self: start
+                - font-size: 14px
+                - opacity: '0.7'
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - padding: 2px 0
+            name: Climate
+            entity: sensor.vindusensor_temperature
+            icon: mdi:thermometer
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/homekit-klima
+            label: |
+              [[[ 
+                 return (entity.state)  + '°C' 
+              ]]]
+            show_label: true
+          - type: custom:button-card
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state > '1' ]]]
+                styles:
+                  card:
+                    - background: null
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 5px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 22px
+                - color: '#FFDD95'
+              name:
+                - justify-self: start
+                - font-size: 14px
+                - font-weight: 500
+                - opacity: '0.7'
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - padding: 2px 0
+            name: Lights
+            entity: sensor.current_lights_on
+            icon: mdi:lightbulb
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/homekit-lys
+            label: |
+              [[[ 
+                return (entity.state)  + ' på' 
+              ]]]
+            show_label: true
+          - type: custom:button-card
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state > '1' ]]]
+                styles:
+                  card:
+                    - background: null
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 5px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 22px
+                - color: '#D24545'
+              name:
+                - justify-self: start
+                - font-size: 14px
+                - font-weight: 500
+                - opacity: '0.7'
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - padding: 2px 0
+            name: Sikkerhet
+            entity: lock.dor_las_3
+            icon: mdi:lock
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/homekit-sikkerhet
+            label: |
+              [[[ 
+                 return (entity.state) 
+              ]]]
+            show_label: true
+      - type: custom:button-card
+        tap_action:
+          action: none
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Kamera
+      - type: horizontal-stack
+        cards:
+          - camera_view: live
+            type: picture-glance
+            entities: []
+            camera_image: camera.demo_camera_png
+            aspect_ratio: '25'
+            theme: minimalist-mobile
+          - type: vertical-stack
+            cards:
+              - camera_view: live
+                type: picture-glance
+                image: https://demo.home-assistant.io/stub_config/kitchen.png
+                entities: []
+                camera_image: camera.demo_camera_png
+                theme: minimalist-mobile
+              - camera_view: live
+                type: picture-glance
+                image: https://demo.home-assistant.io/stub_config/kitchen.png
+                entities: []
+                camera_image: camera.demo_camera
+                theme: minimalist-mobile
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-inngang
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Inngang
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-lock-card
+            entity: lock.dor_las_3
+            fill_container: true
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.inngang_bord_lampe
+              - type: tile
+                entity: light.ute_lys_inngang
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: alarm_control_panel.alarm
+                state_content:
+                  - state
+                  - last-changed
+              - type: tile
+                entity: cover.garasje_apner
+                state_content:
+                  - state
+                  - last-changed
+          - features:
+              - type: target-temperature
+            type: tile
+            entity: climate.trappegang_panelovn
+            vertical: false
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-pult
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Pult
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.color_temperature_light_1_2
+            features:
+              - type: light-brightness
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.pult_skjermer_2
+                state_content:
+                  - state
+                  - last-changed
+              - type: tile
+                entity: media_player.pult_2
+                state_content:
+                  - state
+                  - last-changed
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: script.jazz
+              - type: tile
+                entity: script.mp3
+          - features:
+              - type: fan-speed
+            type: tile
+            entity: fan.ceiling_fan
+            vertical: false
+            name: Pultvifte
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: media_player.soverom_2
+            state_content:
+              - state
+              - last-changed
+          - type: tile
+            entity: media_player.hoytalere
+            state_content:
+              - state
+              - last-changed
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-soverom
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Soverom
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: climate.living_room
+            features:
+              - type: target-temperature
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.color_temperature_light_1_3
+                vertical: false
+                features:
+                  - type: light-brightness
+      - type: horizontal-stack
+        cards:
+          - features:
+              - type: target-temperature
+            type: tile
+            entity: light.nattbord_lampe
+          - features:
+              - type: target-temperature
+            type: tile
+            entity: light.color_temperature_light_1
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-benk
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Benk
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: fan.stavifte_socket_1
+            vertical: true
+            state_content:
+              - state
+              - last-changed
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.benkbelysning_nanoleaf_light_strip
+                state_content:
+                  - state
+                  - last-changed
+              - type: tile
+                entity: switch.server_socket_1
+                state_content:
+                  - state
+                  - last-changed
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-stue
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Stue
+      - type: horizontal-stack
+        cards:
+          - features:
+              - type: target-temperature
+            type: tile
+            entity: climate.panelovn_stue
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.taklampe_sofa_2
+              - type: tile
+                entity: light.stalampe
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: climate.panelovn_stue
+                state_content:
+                  - state
+                  - last-changed
+              - type: tile
+                entity: light.on_off_plug_1
+          - type: tile
+            entity: cover.markise
+            features:
+              - type: cover-open-close
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.color_light_1
+            state_content:
+              - state
+              - last-changed
+          - type: tile
+            entity: light.dimmable_light_1
+            state_content:
+              - state
+              - last-changed
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.sofa_reading_lamp
+            state_content:
+              - state
+              - last-changed
+          - type: tile
+            entity: light.dining_table_lamp
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: media_player.stua_2
+            state_content:
+              - state
+              - last-changed
+          - type: tile
+            entity: media_player.r_n602_stue_2
+            icon: mdi:amplifier
+            state_content:
+              - state
+              - last-changed
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-kjokken
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Kjøkken
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: climate.kjokken_ovn
+            features:
+              - type: target-temperature
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.kjokken_spot
+                features:
+                  - type: light-brightness
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: climate.kjokken_ovn
+          - type: tile
+            entity: light.0x50325ffffef534b2
+            state_content:
+              - state
+              - last-changed
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: climate.fryseskap_freezer
+          - type: tile
+            entity: light.kitchen_table_lamp
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-bad
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Bad
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: climate.bad
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: switch.hanklevarmer
+                state_content:
+                  - power
+                  - last-changed
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-ute
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1.3rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 0.1rem
+            - opacity: '0.4'
+        name: Ute
+      - type: horizontal-stack
+        cards:
+          - features:
+              - type: target-temperature
+            type: tile
+            entity: switch.sprinkler_switch
+            icon: mdi:sprinkler
+            vertical: true
+          - type: vertical-stack
+            cards:
+              - type: tile
+                entity: light.veranda_lampe_venstre
+                state_content:
+                  - state
+                  - last-changed
+              - type: tile
+                entity: light.veranda_lampe_hoyre
+                state_content:
+                  - state
+                  - last-changed
+      - type: custom:weather-card
+        entity: weather.oslo
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Home
+            icon: mdi:home
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/homekit
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Media
+            icon: mdi:play-box-multiple-outline
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/media
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Energy
+            icon: mdi:lightning-bolt-outline
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/energi
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Map
+            icon: mdi:map-outline
+            tap_action:
+              action: navigate
+              navigation_path: /ui-lovelace-minimalist/map
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+        card_mod:
+          style: |
+            :host {
+              z-index: 999;
+              position: sticky;
+              position: -webkit-sticky;
+              bottom: 0;
+            }
+            ha-card {    
+              background: rgb(30,30,30);
+              padding-bottom: 20px;
+              margin: 0px -13px -10px -13px;
+              border-radius: 0px;
+            }
