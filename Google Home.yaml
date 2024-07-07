@@ -1,0 +1,957 @@
+views:
+  - title: Favourites
+    path: google-favourites
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: none
+            show_icon: false
+            show_label: true
+            show_name: true
+            styles:
+              card:
+                - background-color: rgba(0,0,0,0)
+                - box-shadow: none
+                - height: auto
+                - width: auto
+                - margin-top: 6px
+                - margin-left: 6px
+                - margin-bottom: 0px
+                - padding: 2px
+              grid:
+                - grid-template-areas: '''n'' ''l'''
+                - grid-template-columns: 1fr
+                - grid-template-rows: min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: 500
+                - font-size: 1.7rem
+              label:
+                - justify-self: start
+                - font-weight: bold
+                - font-size: 1rem
+                - opacity: '0.4'
+            name: Oslo
+            entity: sensor.greeting
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: spacer
+              - type: action
+                icon: mdi:bell-badge-outline
+              - type: entity
+                entity: person.sebastian
+                icon: mdi:flask-empty-outline
+                content_info: none
+                icon_color: amber
+                use_entity_picture: false
+              - type: entity
+                entity: person.sebastian
+                use_entity_picture: true
+                content_info: none
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            name: Cameras
+            icon: mdi:video-outline
+            label: 2 cameras
+            show_label: true
+            show_status: false
+            entity: light.inngang_taklampe_2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more_info
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#303033'
+                    - opacity: null
+                    - border-radius: 30px
+                    - height: 130px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#303033'
+                    - border-radius: 30px
+                    - height: 130px
+                    - width: 118px
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "i"'
+                - grid-template-rows: 1fr min-content min-content
+                - grid-template-columns: 1fr
+              icon:
+                - width: 28px
+                - color: '#d9e2ff'
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - line-height: 40px
+                - font-weight: 600
+              label:
+                - justify-self: start
+                - font-size: 14px
+                - font-weight: 500
+              card:
+                - padding: 18px
+          - type: custom:button-card
+            name: Lighting
+            icon: mdi:lamps-outline
+            label: 31 lights
+            show_label: true
+            show_status: false
+            entity: light.inngang_taklampe_2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more_info
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#33302a'
+                    - border-radius: 30px
+                    - height: 130px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#33302a'
+                    - border-radius: 30px
+                    - height: 130px
+                    - width: 118px
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "i"'
+                - grid-template-rows: 1fr min-content min-content
+                - grid-template-columns: 1fr
+              icon:
+                - width: 24px
+                - color: '#ffe082'
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+              name:
+                - justify-self: start
+                - font-size: 18px
+                - line-height: 40px
+                - font-weight: 600
+              label:
+                - justify-self: start
+                - font-size: 14px
+                - font-weight: 500
+              card:
+                - padding: 18px
+          - type: custom:button-card
+            name: Climate
+            icon: mdi:thermometer
+            label: 9 devices
+            show_label: true
+            show_status: false
+            entity: light.inngang_taklampe_2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more_info
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#362f2d'
+                    - border-radius: 30px
+                    - height: 130px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#362f2d'
+                    - border-radius: 30px
+                    - height: 130px
+                    - width: 118px
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "i"'
+                - grid-template-rows: 1fr min-content min-content
+                - grid-template-columns: 1fr
+              icon:
+                - width: 24px
+                - color: '#ffdbcd'
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+              name:
+                - justify-self: start
+                - font-size: 18px
+                - line-height: 40px
+                - font-weight: 600
+              label:
+                - justify-self: start
+                - font-size: 14px
+                - font-weight: 500
+              card:
+                - padding: 18px
+      - type: custom:button-card
+        tap_action:
+          action: navigate
+          navigation_path: /ui-lovelace-minimalist/homekit-inngang
+        show_icon: false
+        show_label: true
+        show_name: true
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0)
+            - border-width: 0px
+            - box-shadow: none
+            - height: auto
+            - width: auto
+            - margin-top: 6px
+            - margin-left: 10px
+            - margin-bottom: 0px
+            - padding: 2px
+          grid:
+            - grid-template-areas: '''n'' ''l'''
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+          name:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1rem
+          label:
+            - justify-self: start
+            - font-weight: bold
+            - font-size: 1rem
+            - opacity: '0.4'
+        name: Favourites
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state ]]]
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 40px
+                - height: 40px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+                - width: 69px
+                - height: 50p
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state ) 
+              ]]]
+            entity: climate.bad
+            icon: mdi:thermometer
+            name: Kjøkken gulvvarme
+            show_label: true
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state > '1' ]]]
+                styles:
+                  card:
+                    - background: '#404658'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state)
+              ]]]
+            entity: lock.dor_las_3
+            icon: mdi:lock
+            name: Dør lås
+            show_label: true
+      - show_state: false
+        show_name: false
+        camera_view: auto
+        type: picture-entity
+        camera_image: camera.ringeklokke_high
+        entity: camera.ringeklokke_high
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state ]]]
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+                - width: 69px
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state ) 
+              ]]]
+            entity: climate.living_room
+            icon: mdi:thermometer
+            name: null
+            show_label: true
+          - type: custom:button-card
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#50462a'
+                    - border-radius: 30px
+                    - height: 90px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state)
+              ]]]
+            entity: light.benkbelysning_nanoleaf_light_strip
+            icon: mdi:lamps-outline
+            name: Benk lights
+            show_label: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state ]]]
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+                - width: 69px
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state ) 
+              ]]]
+            entity: cover.garasje_apner
+            icon: mdi:garage-open
+            name: Garasje åpner
+            show_label: true
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#50462a'
+                    - border-radius: 30px
+                    - height: 90px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state)
+              ]]]
+            entity: light.color_temperature_light_1_2
+            icon: mdi:lightbulb-outline
+            name: Pultlampe
+            show_label: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#50462a'
+                    - border-radius: 30px
+                    - height: 90px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+                - width: 69px
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state ) 
+              ]]]
+            entity: light.pult_skjermer_2
+            icon: mdi:lightbulb-outline
+            name: Pultskjermer
+            show_label: true
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state ]]]
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state)
+              ]]]
+            entity: media_player.pult_2
+            icon: mdi:speaker
+            name: Pult
+            show_label: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#50462a'
+                    - border-radius: 30px
+                    - height: 90px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+                - width: 69px
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state ) 
+              ]]]
+            entity: fan.stavifte_socket_1
+            icon: mdi:fan
+            name: Ståvifte
+            show_label: true
+          - type: custom:button-card
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - background: '#50462a'
+                    - border-radius: 30px
+                    - height: 90px
+              - value: 'off'
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state)
+              ]]]
+            entity: light.kjokken_spot
+            icon: mdi:lamps-outline
+            name: Kjøkken lys
+            show_label: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state ]]]
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+                - width: 69px
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state ) 
+              ]]]
+            entity: fan.stavifte_socket_1
+            icon: mdi:fan
+            name: Ståvifte
+            show_label: true
+          - type: custom:button-card
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            state:
+              - operator: template
+                value: |
+                  [[[ return entity.state ]]]
+                styles:
+                  card:
+                    - background: '#323437'
+                    - border-radius: 30px
+                    - height: 90px
+            styles:
+              grid:
+                - grid-template-columns: 40px 1fr
+                - grid-template-rows: min-content min-content
+                - grid-template-areas: '"i n" "i l"'
+              card:
+                - padding: 20px
+              img_cell:
+                - justify-self: start
+                - width: 30px
+                - height: 30px
+                - margin-left: '-3px'
+              icon:
+                - width: 24px
+                - color: '#e3e3e3'
+              name:
+                - justify-self: start
+                - font-size: 16px
+                - font-weight: 500
+                - padding: 2px 0
+              label:
+                - justify-self: start
+                - font-size: 16px
+                - opacity: '0.7'
+                - padding: 2px 0
+            label: |
+              [[[ 
+                return (entity.state)
+              ]]]
+            entity: light.kjokken_spot
+            icon: mdi:lamps-outline
+            name: Kjøkken lys
+            show_label: true
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Favourites
+            icon: mdi:heart
+            tap_action:
+              action: navigate
+              navigation_path: /google-ho-e/google-favourites
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: #004a77;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Devicees
+            icon: mdi:devices
+            tap_action:
+              action: navigate
+              navigation_path: /google-ho-e/google-devices
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Automations
+            icon: mdi:star-four-points-outline
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Activity
+            icon: mdi:history
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+          - type: custom:mushroom-template-card
+            primary: Settings
+            icon: mdi:cog-outline
+            layout: vertical
+            card_mod:
+              style:
+                mushroom-shape-icon$: |
+                  .shape {
+                    width: 66px !important;
+                    height: 36px !important;
+                    --shape-color: none;
+                  }
+                .: |
+                  ha-card {    
+                    background: none;
+                  }
+                  :host {
+                    --mush-icon-border-radius: 16px;
+                  }
+        card_mod:
+          style: |
+            :host {
+              z-index: 999;
+              position: sticky;
+              position: -webkit-sticky;
+              bottom: 0;
+            }
+            ha-card {    
+              padding-bottom: 15px;
+              margin: 0px -13px -10px -13px;
+              border-radius: 0px;
+              background: #28282a
+            }
+            .dark-mode ha-card {
+              background: var(--ha-card-background-dark);
+            }
+            .light-mode ha-card {
+              background: var(--ha-card-background-light);
+            }
+    icon: mdi:cards-heart
